@@ -66,14 +66,33 @@ function App() {
         }
     }
     function isClear(grabbedButtonValue) {
-        if ((grabbedButtonValue = "All Clear")) {
+      //have to work backwards, as we need to check NumberB first, and work backwards
+
+      //checking if numberB is a value, if it is, clear it, and go back a step, displaying your operand
+      if (numberB !== null) {
+        setNumberB(null);
+        setDisplay(operand);
+        return;
+        //checking if operand is a value, if it is, clear it, and go back a step, displaying numberA
+      } if (operand !== null) {
+        setOperand(null);
+        setDisplay(numberA);
+        return;
+
+        //checking if operand is a value, if it is, clear it, and go back a step, displaying nothing
+      } if (numberA !== null) {
+        setNumberA(null);
+        setDisplay(null);
+        return;
+
+      } if ((grabbedButtonValue = "All Clear")) {
             setNumberA(null);
             setNumberB(null);
             setOperand(null);
             setDisplay(null);
-        } else {
-
-        }
+        } 
+              
+        
      
     }
 
