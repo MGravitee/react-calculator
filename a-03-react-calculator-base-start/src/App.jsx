@@ -129,7 +129,7 @@ function App() {
             setNumberA(dividedValue);
             setOperand(null);
             setNumberB(null);
-            setDisplay(dividedValue);
+            setDisplay(dividedValue.toFixed(3));
         }
     }
 
