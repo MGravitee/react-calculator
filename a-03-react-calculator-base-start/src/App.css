@@ -24,110 +24,139 @@
       inset 5px 5px 15px rgba(0, 0, 0, 0.25);
   }
 
-  .display {
-    width: 420px;
-    height: 60px;
-    border-radius: 10px;
-    background-color: #ffffff;
-    color: #4121f3;
-  }
-
-  /* .container button {
-    color: #fff;
-    position: relative;
-    display: grid;
+ 
+/* .button {
+  width: 50px;
+  height: 50px;
+} */
+  
+  .container button {
+    color: #fff;    
+    font-size: 2rem;
     width: 80px;
-    place-items: center;
     margin: 8px;
     height: 80px;
     background: linear-gradient(180deg, #2f2f2f, #3f3f3f);
     box-shadow: inset -8px 0 8px rgba(0, 0, 0, 0.15),
       inset 0 -8px 8px rgba(0, 0, 0, 0.25), 0 0 0 2px rgba(0, 0, 0, 0.75),
       10px 20px 25px rgba(0, 0, 0, 0.4);
-    user-select: none;
     cursor: pointer;
     font-weight: 400;
     border-radius: 10px;
-  } */
+  }
 
-  /* .calculator {
+  
+ .button-container {
     position: relative;
     display: grid;
-  } */
-/*   
+    grid-template-areas:
+        "display display display display" 
+        "AC . clear  divide"
+        "seven eight nine multiply"
+        "four five six minus"
+        "one two three add"
+        ". zero . equals";
+  } 
+ 
+  .display {
+    font-family: "Comic Sans MS";
+    font-size: 2rem;
+    grid-area: display;
+    text-align: right;
+    width: 400px;
+    height: 60px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    color: #4121f3;
+  }
+
+
+  .calculator button:hover {
+    background: linear-gradient(90deg, #444343, #5f5f5f)
+  }
+
   .calculator button:active {
     filter: brightness(1.5);
   }
-  .calculator button::before {
-    content: "";
-    position: absolute;
-    top: 3px;
-    left: 4px;
-    bottom: 14px;
-    right: 12px;
-    border-radius: 10px;
-    background: linear-gradient(90deg, #2d2d2d, #4d4d4d);
-    box-shadow: -5px -5px 15px rgba(0, 0, 0, 0.1),
-      10px 5px 10px rgba(0, 0, 0, 0.15);
-    border-left: 1px solid #0004;
-    border-bottom: 1px solid #0004;
-    border-top: 1px solid #0009;
-  } */
+  
+  .calculator .ac {
+    background-color: red;
+  }
 
-
-  .calculator .value {
-    position: relative;
-    grid-column: span 4;
-    height: 100px;
-    width: calc(100% - 20px);
-    left: 10px;
-    border: none;
-    outline: none;
-    background-color: #a7af7c;
-    margin-bottom: 10px;
-    border-radius: 10px;
-    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.75);
-    text-align: right;
-    padding: 10px;
-    font-size: 2em;
-  }
-  .calculator .clear {
-    grid-column: span 2;
-    width: 180px;
-    background: #f00;
-  }
-  .calculator .clear::before {
-    background: linear-gradient(90deg, #d20000, #ffffff5c);
-    border-left: 1px solid #fff4;
-    border-bottom: 1px solid #fff4;
-    border-top: 1px solid #fff4;
-  }
-  .calculator .operator {
-    grid-row: span 2;
-    height: 180px;
-  }
-  .calculator .equal {
-    background: #2196f3;
+  .container .equal {
+    background-color: #2196f3;
   }
   .calculator .add {
-    background: #21f344;
+    background: #f321d7;
   }
   .calculator .subtract {
-    background: #cdf321;
+    background: #f321d7;
   }
   .calculator .divide {
-    background: #4121f3;
+    background: #f321d7;
   }
   .calculator .multiply {
     background: #f321d7;
   }
 
- 
 
-  .calculator .equal::before {
-    background: linear-gradient(90deg, #1479c9, #ffffff5c);
-    border-left: 1px solid #fff4;
-    border-bottom: 1px solid #fff4;
-    border-top: 1px solid #fff4;
-  }
+/* grid template area for ALL BUTTONS, omg */
   
+  .ac {
+    grid-area: AC;
+  }
+
+  .c {
+    grid-area: clear
+  }
+
+.divide {
+  grid-area: divide;
+}
+
+.multiply {
+  grid-area: multiply;
+}
+
+.add {
+  grid-area: add;
+}
+
+.subtract {
+  grid-area: minus;
+}
+
+.equal {
+  grid-area: equals;
+}
+
+.nine {
+  grid-area: nine
+}
+.eight {
+  grid-area: eight
+}
+.seven {
+  grid-area: seven
+}
+.six {
+  grid-area: six;
+}
+.five {
+  grid-area:five;
+}
+.four {
+  grid-area: four;
+}
+.three {
+  grid-area: three;
+}
+.two {
+  grid-area: two
+}
+.one {
+  grid-area: one;
+}
+.zero {
+  grid-area: zero;
+}

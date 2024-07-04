@@ -138,6 +138,7 @@ function App() {
             <div className="calculator">
                 <Display display={display} />
                 <CalcButtons clickHandlerProp={handleButtonClick} />
+                
             </div>
         </div>
     );
