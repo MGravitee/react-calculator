@@ -129,7 +129,7 @@ function App() {
             setNumberA(dividedValue);
             setOperand(null);
             setNumberB(null);
-            setDisplay(dividedValue);
+            setDisplay(dividedValue.toFixed(3));
         }
     }
 
@@ -138,6 +138,7 @@ function App() {
             <div className="calculator">
                 <Display display={display} />
                 <CalcButtons clickHandlerProp={handleButtonClick} />
+                
             </div>
         </div>
     );
