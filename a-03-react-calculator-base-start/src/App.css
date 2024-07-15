@@ -45,25 +45,13 @@
     border-radius: 10px;
   }
 
-  
- .button-container {
-    position: relative;
-    display: grid;
-    grid-template-areas:
-        "display display display display" 
-        "AC . clear  divide"
-        "seven eight nine multiply"
-        "four five six minus"
-        "one two three add"
-        ". zero . equals";
-  } 
- 
+
   .display {
     font-family: "Comic Sans MS";
     font-size: 2rem;
     grid-area: display;
     text-align: right;
-    width: 400px;
+    width: 480px;
     height: 80px;
     border-radius: 10px;
     background-color: #ffffff;
@@ -104,6 +92,20 @@
 
 /* grid template area for ALL BUTTONS, omg */
   
+
+.button-container {
+  position: relative;
+  display: grid;
+  grid-template-areas:
+      "display display display display display" 
+      "AC . clear  divide m-clear"
+      "seven eight nine multiply m-save"
+      "four five six minus m-minus"
+      "one two three add m-plus"
+      ". zero . equals m-recall";
+} 
+
+
   .ac {
     grid-area: AC;
   }
@@ -161,4 +163,24 @@
 }
 .zero {
   grid-area: zero;
+}
+
+.ms {
+  grid-area: m-save;
+}
+
+.mc {
+  grid-area: m-clear;
+}
+
+.mr {
+  grid-area: m-recall;
+}
+
+.m-minus {
+  grid-area: m-minus;
+}
+
+.m-plus {
+  grid-area: m-plus;
 }
