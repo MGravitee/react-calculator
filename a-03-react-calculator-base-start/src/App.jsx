@@ -41,6 +41,14 @@ function App() {
             case "memory":
                 isMemory(clickedButtonData.buttonValue);
                 break;
+
+            case "sign":
+                isSign(clickedButtonData.buttonValue);
+                break;
+
+            case "decimal":
+                isDecimal(clickedButtonData.buttonValue);
+                break;
         }
     }
 
@@ -108,6 +116,7 @@ function App() {
 
     function isEnter(grabbedButtonValue) {
         if (operand === "Add") {
+            //need to do this because addition is also used to concatenate things, whereas every other operator isn't so the other ones are smart enough to know they're numbers
             const addedValue = parseInt(numberA) + parseInt(numberB);
             setNumberA(addedValue);
             setOperand(null);
@@ -150,7 +159,9 @@ function App() {
             const recalledValue = memory;
             if (operand === null) {
                 setNumberA(recalledValue);
-            } else {setNumberB(recalledValue)};
+            } else {
+                setNumberB(recalledValue);
+            }
             setDisplay(recalledValue);
         }
 
@@ -159,7 +170,6 @@ function App() {
             const savedMemValue = parseInt(memory);
             const finalPlusValue = plusedMemValue + savedMemValue;
             setMemory(finalPlusValue);
-
         }
         if (grabbedButtonValue === "Memory Subtract") {
             const subtractedMemValue = display;
@@ -174,6 +184,37 @@ function App() {
                 setMemory(null);
             }
         }
+    }
+
+    // function isDecimal {
+
+    // }
+
+    function isSign(grabbedButtonValue) {
+        if (grabbedButtonValue === "+/-") {
+            if (numberA > 0) {
+                const newNegNum = numberA * -1;
+            setNumberA(newNegNum);
+            setDisplay(newNegNum);
+            }
+            if (numberA < 0) {
+                const newPosNum = numberA * 1;
+                setNumberA(newPosNum);
+                setDisplay(newPosNum);
+            }
+            if (numberB > 0) {
+                const newNegNum1 = numberB * -1;
+                setNumberB(newNegNum1);
+                setDisplay(newNegNum1);
+            }
+            if (numberB < 0) {
+                const newPosNum1 = numberB * 1;
+                setNumberB(newPosNum1);
+                setDisplay(newPosNum1);
+            }
+
+        }
+
     }
 
     return (

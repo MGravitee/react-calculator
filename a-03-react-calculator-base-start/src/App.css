@@ -46,6 +46,7 @@
   }
 
 
+
   .display {
     font-family: "Comic Sans MS";
     font-size: 2rem;
@@ -89,6 +90,10 @@
     background: #f321d7;
   }
 
+  .calculator button .sign {
+    background: orange;
+  }
+
 
 /* grid template area for ALL BUTTONS, omg */
   
@@ -102,7 +107,7 @@
       "seven eight nine multiply m-save"
       "four five six minus m-minus"
       "one two three add m-plus"
-      ". zero . equals m-recall";
+      "sign zero decimal equals m-recall";
 } 
 
 
@@ -183,4 +188,12 @@
 
 .m-plus {
   grid-area: m-plus;
+}
+
+.decimal {
+  grid-area: decimal;
+}
+
+.sign {
+  grid-area: sign;
 }
