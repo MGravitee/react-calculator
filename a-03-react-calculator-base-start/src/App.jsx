@@ -16,6 +16,8 @@ function App() {
 
     const [operand, setOperand] = useState(null);
 
+    const [memory, setMemory] = useState(null);
+
     function handleButtonClick(clickedButtonData) {
         console.log(clickedButtonData);
 
@@ -35,13 +37,17 @@ function App() {
             case "enter":
                 isEnter(clickedButtonData.buttonValue);
                 break;
+
+            case "memory":
+                isMemory(clickedButtonData.buttonValue);
+                break;
         }
     }
 
     // functions for switch statements to check
 
     function isNumber(grabbedButtonValue) {
-        // so if the operaand is something and number a is something we work with number b
+        // so if the operand is something and number a is something we work with number b
         if (operand !== null && numberA !== null) {
             // if number B is something
             if (numberB) {
@@ -66,34 +72,33 @@ function App() {
         }
     }
     function isClear(grabbedButtonValue) {
-      //have to work backwards, as we need to check NumberB first, and work backwards
+        //have to work backwards, as we need to check NumberB first, and work backwards
 
-      //checking if numberB is a value, if it is, clear it, and go back a step, displaying your operand
-      if (numberB !== null) {
-        setNumberB(null);
-        setDisplay(operand);
-        return;
-        //checking if operand is a value, if it is, clear it, and go back a step, displaying numberA
-      } if (operand !== null) {
-        setOperand(null);
-        setDisplay(numberA);
-        return;
+        //checking if numberB is a value, if it is, clear it, and go back a step, displaying your operand
+        if (numberB !== null) {
+            setNumberB(null);
+            setDisplay(operand);
+            return;
+            //checking if operand is a value, if it is, clear it, and go back a step, displaying numberA
+        }
+        if (operand !== null) {
+            setOperand(null);
+            setDisplay(numberA);
+            return;
 
-        //checking if operand is a value, if it is, clear it, and go back a step, displaying nothing
-      } if (numberA !== null) {
-        setNumberA(null);
-        setDisplay(null);
-        return;
-
-      } if ((grabbedButtonValue = "All Clear")) {
+            //checking if operand is a value, if it is, clear it, and go back a step, displaying nothing
+        }
+        if (numberA !== null) {
+            setNumberA(null);
+            setDisplay(null);
+            return;
+        }
+        if ((grabbedButtonValue = "All Clear")) {
             setNumberA(null);
             setNumberB(null);
             setOperand(null);
             setDisplay(null);
-        } 
-              
-        
-     
+        }
     }
 
     function isOperator(grabbedButtonValue) {
@@ -133,12 +138,30 @@ function App() {
         }
     }
 
+    function isMemory(grabbedButtonValue) {
+        if (grabbedButtonValue === "Memory Save") {
+            const displayedValue = display;
+            setMemory(displayedValue);
+            console.log(displayedValue);
+        }
+        // if (memory === "Memory Recall") {
+        //     const recalledValue = memory;
+        //     setDisplay(recalledValue);
+        // }
+        // if (memory === "Memory Addition") {
+
+        // }
+        // if (memory === "Memory Subtract") {
+
+        // }
+        
+    }
+
     return (
         <div className="container">
             <div className="calculator">
                 <Display display={display} />
                 <CalcButtons clickHandlerProp={handleButtonClick} />
-                
             </div>
         </div>
     );
