@@ -144,17 +144,27 @@ function App() {
             setMemory(displayedValue);
             console.log(displayedValue);
         }
-        // if (memory === "Memory Recall") {
-        //     const recalledValue = memory;
-        //     setDisplay(recalledValue);
-        // }
-        // if (memory === "Memory Addition") {
+
+        if (grabbedButtonValue === "Memory Recall") {
+            const recalledValue = memory;
+            if (operand !== null) {
+                setNumberB(recalledValue);
+            }
+            setDisplay(recalledValue);
+        }
+
+        // if (grabbedButtonValue === "Memory Addition") {
 
         // }
-        // if (memory === "Memory Subtract") {
+        // if (grabbedButtonValue === "Memory Subtract") {
 
         // }
-        
+        // if (grabbedButtonValue === "Memory Clear") {
+        //     if (memory !== null) {
+        //         setMemory(null);
+        //         console.log(memory);
+        //     }
+        // }
     }
 
     return (
