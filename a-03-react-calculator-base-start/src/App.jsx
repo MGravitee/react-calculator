@@ -130,6 +130,7 @@ function App() {
             setDisplay(multipliedValue);
         }
         if (operand === "Divide") {
+            //if divided value is float/HAS a decimal then use the toFixed from the bottom -modulus or string checking if there's a .
             const dividedValue = numberA / numberB;
             setNumberA(dividedValue);
             setOperand(null);
@@ -147,24 +148,32 @@ function App() {
 
         if (grabbedButtonValue === "Memory Recall") {
             const recalledValue = memory;
-            if (operand !== null) {
-                setNumberB(recalledValue);
-            }
+            if (operand === null) {
+                setNumberA(recalledValue);
+            } else {setNumberB(recalledValue)};
             setDisplay(recalledValue);
         }
 
-        // if (grabbedButtonValue === "Memory Addition") {
+        if (grabbedButtonValue === "Memory Addition") {
+            const plusedMemValue = parseInt(display);
+            const savedMemValue = parseInt(memory);
+            const finalPlusValue = plusedMemValue + savedMemValue;
+            setMemory(finalPlusValue);
 
-        // }
-        // if (grabbedButtonValue === "Memory Subtract") {
+        }
+        if (grabbedButtonValue === "Memory Subtract") {
+            const subtractedMemValue = display;
+            const savedMemValue = memory;
+            const finalSubValue = savedMemValue - subtractedMemValue;
+            setMemory(finalSubValue);
+            console.log(finalSubValue);
+        }
 
-        // }
-        // if (grabbedButtonValue === "Memory Clear") {
-        //     if (memory !== null) {
-        //         setMemory(null);
-        //         console.log(memory);
-        //     }
-        // }
+        if (grabbedButtonValue === "Memory Clear") {
+            if (memory !== null) {
+                setMemory(null);
+            }
+        }
     }
 
     return (
